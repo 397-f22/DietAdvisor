@@ -1,15 +1,11 @@
 import { Form, Button } from "react-bootstrap";
+import menu from '../data/menu.jsx';
+
 
 const SearchBar = ({setSelection}) => {
     
-    return <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
+    return 
+        <Form.Control type="search" placeholder="Enter food" onChange={(e) => setSelection(e.target.value)} />
 
-        <Button variant="primary" type="submit">
-        Submit
-        </Button>
-    </Form>
 };
+
