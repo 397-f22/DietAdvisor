@@ -1,20 +1,12 @@
-{
-    "Calories": 200,
-    "Protein (g)": 14,
+
+
+
+const nutrients = {
+    "Calories": 0,
+    "Protein (g)": 0,
     "Total Carbohydrates (g)": 0,
     "Sugar (g)": 0,
-    "Total Fat (g)": 15,
-    "Saturated Fat (g)": 4,
-    "Cholesterol (mg)": 420,
-    "Dietary Fiber (g)": 0,
-    "Sodium (mg)": 160,
-    "Potassium (mg)": 160,
-    "Calcium (mg)": 60,
-    "Iron (mg)": 2,
-    "Trans Fat (g)": 0,
-    "Vitamin D (IU)": 90,
-    "Vitamin C (mg)": 0,
-    "Calories From Fat": 140,
-    "Vitamin A (RE)": 120,
-    "Saturated Fat + Trans Fat (g)": 5
+    "Total Fat (g)": 0
 }
+
+export default menu;
