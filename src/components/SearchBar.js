@@ -64,7 +64,7 @@ const SearchBar = ({ setSelection }) => {
                 <option value="2">Bread</option>
                 <option value="3">Apple</option>
             </Form.Select>
-            <ReactSearchAutocomplete>
+            <ReactSearchAutocomplete
                 items={items}
                 onSearch={handleOnSearch}
                 onHover={handleOnHover}
@@ -72,7 +72,7 @@ const SearchBar = ({ setSelection }) => {
                 onFocus={handleOnFocus}
                 autoFocus
                 formatResult={formatResult}
-            </ReactSearchAutocomplete>
+            />
         </div>
     )
 
