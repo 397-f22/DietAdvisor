@@ -9,4 +9,4 @@ const nutrients = {
     "Total Fat (g)": 0
 }
 
-export default menu;
+export default nutrients;
