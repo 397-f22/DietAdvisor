@@ -19,9 +19,9 @@ function App() {
     <div className="App">
       <SearchBar macros={macros} setMacros={setMacros} />
       <NutritionInfo nutrients={macros} />
-
-
+      {/* <Slider /> */}
     </div>
+  
   );
 }
 
