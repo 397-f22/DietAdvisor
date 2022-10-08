@@ -1,70 +1,40 @@
-import { Form, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
 import nutrients from '../data/menu.jsx';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import foods from "../data/food.json";
 
 
-const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
-    console.log(string, results)
-  }
+const updateMacros = (item, portions, macros) => {
+    const newMacros = {};
+    Object.assign(newMacros, macros);
 
-  const handleOnHover = (result) => {
-    // the item hovered
-    console.log(result)
-  }
+    Object.entries(macros).forEach( 
+        ([macro, amount]) => {
+            newMacros[macro] = amount + portions * item[macro];
+        }
+    );
 
-  const handleOnSelect = (item) => {
-    // the item selected
-    console.log(item)
-  }
+    return newMacros;
+};
 
-  const handleOnFocus = () => {
-    console.log('Focused')
-  }
-const items = [
-    {
-        id: 0,
-        name: 'Cobol'
-    },
-    {
-        id: 1,
-        name: 'JavaScript'
-    },
-    {
-        id: 2,
-        name: 'Basic'
-    },
-    {
-        id: 3,
-        name: 'PHP'
-    },
-    {
-        id: 4,
-        name: 'Java'
-    }
-]
+const SearchBar = ({ macros, setMacros }) => {
+    const [food,setFood] = useState(Object.keys(foods)[0]); 
+    const [portions, setPortions] = useState(0);
 
-const formatResult = (item) => {
-    return (
-        <>
-            <span style={{ display: 'block', textAlign: 'left' }}>id: {item.id}</span>
-            <span style={{ display: 'block', textAlign: 'left' }}>name: {item.name}</span>
-        </>
-    )
-}
-
-const SearchBar = ({ setSelection }) => {
     return (
         <div>
-            <Form.Control type="search" placeholder="Enter food" onChange={(e) => setSelection(e.target.value)} />
-            <Form.Select aria-label="Default select example">
-                <option>Open this select menu</option>
-                <option value="1">Egg</option>
-                <option value="2">Bread</option>
-                <option value="3">Apple</option>
-            </Form.Select>
-            <ReactSearchAutocomplete
+            <div class = "container">
+                <div class = "row">
+                    <Form.Select onChange ={(e)=> setFood(e.target.value)} style={{width:"50%"}}>
+                        {Object.keys(foods).map((item) => (<option key={item} value={item}>{item}</option>))}
+                    </Form.Select>
+                    <Form.Control type="search" placeholder="Enter portions (number)" onChange={(e) => setPortions(e.target.value)} style={{width:"50%"}} />
+                </div>
+                
+            </div>
+            <Button variant="primary" onClick={() => {setMacros(updateMacros(foods[food], portions, macros))}}>Add</Button>
+            {/* <ReactSearchAutocomplete
                 items={items}
                 onSearch={handleOnSearch}
                 onHover={handleOnHover}
@@ -72,7 +42,7 @@ const SearchBar = ({ setSelection }) => {
                 onFocus={handleOnFocus}
                 autoFocus
                 formatResult={formatResult}
-            />
+            /> */}
         </div>
     )
 

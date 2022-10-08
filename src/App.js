@@ -4,14 +4,23 @@ import NutritionInfo from './components/NutritionInfo';
 import SearchBar from './components/SearchBar';
 import nutrients from './data/menu';
 import Slider from './components/Slider'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
-  const [selection, setSelection] = useState(null);
+  const [macros, setMacros] = useState({
+      "Calories": 0,
+      "Protein (g)": 0,
+      "Total Carbohydrates (g)": 0,
+      "Sugar (g)": 0,
+      "Total Fat (g)": 0
+  });
   return (
     <div className="App">
-      <SearchBar setSelection={setSelection} />
-      <NutritionInfo nutrients={nutrients} />
-      <Slider />
+      <SearchBar macros={macros} setMacros={setMacros} />
+      <NutritionInfo nutrients={macros} />
+
+
     </div>
   );
 }
