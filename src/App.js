@@ -3,6 +3,7 @@ import './App.css';
 import NutritionInfo from './components/NutritionInfo';
 import SearchBar from './components/SearchBar';
 import nutrients from './data/menu';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [macros, setMacros] = useState({

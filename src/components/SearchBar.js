@@ -4,6 +4,7 @@ import { useState } from 'react';
 import nutrients from '../data/menu.jsx';
 import foods from "../data/food.json";
 
+
 const updateMacros = (item, portions, macros) => {
     const newMacros = {};
     Object.assign(newMacros, macros);
@@ -23,10 +24,15 @@ const SearchBar = ({ macros, setMacros }) => {
 
     return (
         <div>
-            <Form.Select onChange ={(e)=> setFood(e.target.value)}>
-                {Object.keys(foods).map((item) => (<option key={item} value={item}>{item}</option>))}
-            </Form.Select>
-            <Form.Control type="search" placeholder="Enter portions (number)" onChange={(e) => setPortions(e.target.value)} />
+            <div class = "container">
+                <div class = "row">
+                    <Form.Select onChange ={(e)=> setFood(e.target.value)} style={{width:"50%"}}>
+                        {Object.keys(foods).map((item) => (<option key={item} value={item}>{item}</option>))}
+                    </Form.Select>
+                    <Form.Control type="search" placeholder="Enter portions (number)" onChange={(e) => setPortions(e.target.value)} style={{width:"50%"}} />
+                </div>
+                
+            </div>
             <Button variant="primary" onClick={() => {setMacros(updateMacros(foods[food], portions, macros))}}>Add</Button>
             {/* <ReactSearchAutocomplete
                 items={items}
