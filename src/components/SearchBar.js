@@ -1,4 +1,5 @@
-import { Form, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import nutrients from '../data/menu.jsx';
 import foods from "../data/food.json";
