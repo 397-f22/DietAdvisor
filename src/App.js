@@ -3,7 +3,9 @@ import './App.css';
 import NutritionInfo from './components/NutritionInfo';
 import SearchBar from './components/SearchBar';
 import nutrients from './data/menu';
+import Slider from './components/Slider'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [macros, setMacros] = useState({
@@ -17,6 +19,8 @@ function App() {
     <div className="App">
       <SearchBar macros={macros} setMacros={setMacros} />
       <NutritionInfo nutrients={macros} />
+
+
     </div>
   );
 }
