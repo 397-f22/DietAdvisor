@@ -14,7 +14,7 @@ function App() {
   });
   return (
     <div className="App">
-      <SearchBar setMacros={setMacros} />
+      <SearchBar macros={macros} setMacros={setMacros} />
       <NutritionInfo nutrients={macros} />
     </div>
   );
