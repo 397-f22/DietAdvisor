@@ -5,11 +5,17 @@ import SearchBar from './components/SearchBar';
 import nutrients from './data/menu';
 
 function App() {
-  const [selection, setSelection] = useState(null);
+  const [macros, setMacros] = useState({
+      "Calories": 0,
+      "Protein (g)": 0,
+      "Total Carbohydrates (g)": 0,
+      "Sugar (g)": 0,
+      "Total Fat (g)": 0
+  });
   return (
     <div className="App">
-      <SearchBar setSelection={setSelection} />
-      <NutritionInfo nutrients={nutrients} />
+      <SearchBar setMacros={setMacros} />
+      <NutritionInfo nutrients={macros} />
     </div>
   );
 }

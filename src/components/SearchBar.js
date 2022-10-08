@@ -1,16 +1,18 @@
 import { Form, Button } from "react-bootstrap";
+import { useState } from 'react';
 import nutrients from '../data/menu.jsx';
-import food from "../data/food.json";
+import foods from "../data/food.json";
 
-const SearchBar = ({ setSelection }) => {
-    console.log(food);
+const SearchBar = ({ setMacros }) => {
+    const [food,setFood] = useState(0); 
+
     return (
         <div>
-            <Form.Select aria-label="Default select example">
-                {Object.keys(food).map((item) => (<option key={item} value={item}>{item}</option>))}
+            <Form.Select onChange ={(e)=> setFood(e.target.value)}>
+                {Object.keys(foods).map((item) => (<option key={item} value={item}>{item}</option>))}
             </Form.Select>
-            <Form.Control type="search" placeholder="Enter portions (number)" onChange={(e) => setSelection(e.target.value)} />
-            <Button variant="primary">Add</Button>
+            <Form.Control type="search" placeholder="Enter portions (number)" onChange={(e) => setMacros(e.target.value)} />
+            <Button variant="primary" onClick={setMacros()}>Add</Button>
             {/* <ReactSearchAutocomplete
                 items={items}
                 onSearch={handleOnSearch}
