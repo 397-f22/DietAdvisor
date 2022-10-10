@@ -9,6 +9,9 @@ const updateMacros = (item, portions, macros) => {
     const newMacros = {};
     Object.assign(newMacros, macros);
 
+    if(isNaN(portions))
+        return newMacros;
+
     Object.entries(macros).forEach( 
         ([macro, amount]) => {
             newMacros[macro] = amount + portions * item[macro];
@@ -18,7 +21,16 @@ const updateMacros = (item, portions, macros) => {
     return newMacros;
 };
 
-const SearchBar = ({ macros, setMacros }) => {
+const updateFoodItems = (item, portions, foodItems, setFoodItems) => {
+    const newFoodItems = {...foodItems};
+    newFoodItems[item] = foodItems[item] ? foodItems[item] + parseInt(portions) : parseInt(portions);
+
+    setFoodItems(newFoodItems);
+
+    console.log(newFoodItems);
+}
+
+const SearchBar = ({ macros, foodItems, setMacros, setFoodItems }) => {
     const [food,setFood] = useState(Object.keys(foods)[0]); 
     const [portions, setPortions] = useState(0);
 
@@ -33,16 +45,7 @@ const SearchBar = ({ macros, setMacros }) => {
                 </div>
                 
             </div>
-            <Button variant="primary" onClick={() => {setMacros(updateMacros(foods[food], portions, macros))}}>Add</Button>
-            {/* <ReactSearchAutocomplete
-                items={items}
-                onSearch={handleOnSearch}
-                onHover={handleOnHover}
-                onSelect={handleOnSelect}
-                onFocus={handleOnFocus}
-                autoFocus
-                formatResult={formatResult}
-            /> */}
+            <Button variant="primary" onClick={() => {setMacros(updateMacros(foods[food], portions, macros)); updateFoodItems(food, portions, foodItems, setFoodItems);}}>Add</Button>
         </div>
     )
 

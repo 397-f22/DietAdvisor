@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import NutritionInfo from './components/NutritionInfo';
 import SearchBar from './components/SearchBar';
+import ItemList from './components/ItemList';
 import nutrients from './data/menu';
 import Slider from './components/Slider'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,10 +16,13 @@ function App() {
       "Sugar (g)": 0,
       "Total Fat (g)": 0
   });
+  const [foodItems, setFoodItems] = useState({});
+
   return (
     <div className="App">
-      <SearchBar macros={macros} setMacros={setMacros} />
+      <SearchBar macros={macros} foodItems={foodItems} setFoodItems={setFoodItems} setMacros={setMacros} />
       <NutritionInfo nutrients={macros} />
+      <ItemList foodItems={foodItems}/>
       {/* <Slider /> */}
     </div>
   
