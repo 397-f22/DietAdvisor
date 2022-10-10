@@ -5,6 +5,9 @@ import SearchBar from './components/SearchBar';
 import nutrients from './data/menu';
 import Slider from './components/Slider'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Autocomplete from "./AutoComplete";
+import { autoCompleteData } from "./data.js";
+
 
 
 function App() {
@@ -19,6 +22,7 @@ function App() {
     <div className="App">
       <SearchBar macros={macros} setMacros={setMacros} />
       <NutritionInfo nutrients={macros} />
+      <Autocomplete data={autoCompleteData} />
       {/* <Slider /> */}
     </div>
   
