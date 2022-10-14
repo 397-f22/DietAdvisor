@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import nutrients from '../data/menu.jsx';
-import foods from "../data/food.json";
+import foods from "../data/data_lunch.json";
 
 
 const updateMacros = (item, portions, macros) => {
