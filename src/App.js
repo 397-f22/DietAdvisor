@@ -9,6 +9,9 @@ import Slider from './components/Slider'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Autocomplete from "./AutoComplete";
 import { autoCompleteData } from "./data.js";
+import BottomMenu from './components/BottomMenu.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginLogout from './components/LoginLogout';
 
 
 
@@ -32,15 +35,22 @@ function App() {
 });
   const [foodItems, setFoodItems] = useState({});
   return (
-    <div className="App">
-      <SearchBar macros={macros} foodItems={foodItems} setFoodItems={setFoodItems} setMacros={setMacros} />
-      <SetGoal goals={goals} setGoals={setGoals}/>
-      <NutritionInfo nutrients={macros} goal={goals} />
-      <ItemList foodItems={foodItems} setFoodItems={setFoodItems}/>
-      <Autocomplete data={autoCompleteData} />
-      {/* <Slider /> */}
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <div>
+              <SearchBar macros={macros} foodItems={foodItems} setFoodItems={setFoodItems} setMacros={setMacros} />
+              <SetGoal goals={goals} setGoals={setGoals}/>
+              <NutritionInfo nutrients={macros} goal={goals} />
+              <ItemList foodItems={foodItems} setFoodItems={setFoodItems}/>
+              <Autocomplete data={autoCompleteData} />
+            </div>} />
+            <Route path="/authenticate" element={<LoginLogout />} />
+        </Routes>
+        <BottomMenu />
+      </BrowserRouter>
     </div>
-  
   );
 }
 
