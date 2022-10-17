@@ -1,7 +1,7 @@
 import { ListGroup } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
-import foods from "../data/food.json";
+import foods from "../data/data_lunch.json";
 
 const addFoodPortions = (macros,food,foodItems,setFoodItems,setMacros) => {
     const newFoodItems = {...foodItems};
