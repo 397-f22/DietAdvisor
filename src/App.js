@@ -43,7 +43,7 @@ function App() {
               <SearchBar macros={macros} foodItems={foodItems} setFoodItems={setFoodItems} setMacros={setMacros} />
               <SetGoal goals={goals} setGoals={setGoals}/>
               <NutritionInfo nutrients={macros} goal={goals} />
-              <ItemList foodItems={foodItems} setFoodItems={setFoodItems}/>
+              <ItemList macros={macros} foodItems={foodItems} setFoodItems={setFoodItems} setMacros={setMacros}/>
               <Autocomplete data={autoCompleteData} />
             </div>} />
             <Route path="/authenticate" element={<LoginLogout />} />
