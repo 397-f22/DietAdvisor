@@ -21,6 +21,7 @@ export const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
             localStorage.setItem("userName", result.user.displayName);
+            localStorage.setItem("userPhoto", result.user.photoURL);
         })
         .then(() => {
             window.location.reload(false);
@@ -32,6 +33,7 @@ export const signInWithGoogle = () => {
 
 export const signOutWithGoogle = () => {
     localStorage.removeItem("userName");
+    localStorage.removeItem("userPhoto");
     signOut(auth)
         .then(() => {
             window.location.reload(false);

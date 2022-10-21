@@ -46,7 +46,7 @@ function App() {
               <ItemList macros={macros} foodItems={foodItems} setFoodItems={setFoodItems} setMacros={setMacros}/>
               <Autocomplete data={autoCompleteData} />
             </div>} />
-            <Route path="/authenticate" element={<LoginLogout />} />
+            <Route path="/authenticate" element={<LoginLogout goals={goals} />} />
         </Routes>
         <BottomMenu />
       </BrowserRouter>

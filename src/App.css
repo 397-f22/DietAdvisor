@@ -1,5 +1,7 @@
-.App {
+html, body, .App {
   text-align: center;
+  height: 95vh;
+  width: 100vw;
 }
 
 .App-logo {
@@ -72,4 +74,35 @@
 
 .customSlider-thumb:hover {
   box-shadow: 0 0 0 8px var(--main-color-hover);
+}
+
+.profile-container {
+  height: 100%;
+  width: 100vw;
+}
+
+.profile-photo-name {
+  height: 30vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #BCCEF8;
+}
+
+.profile-photo {
+  width: 15vh;
+  border-radius: 50%;
+}
+
+.profile-nutrient-goal, .profile-item-list, .profile-food-timeseries {
+  height: 20vh;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: #FAF7F0;
+}
+
+.login-logout {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: normal;
+  color: blue;
 }
