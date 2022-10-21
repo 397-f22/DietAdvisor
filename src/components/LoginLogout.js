@@ -1,7 +1,10 @@
 import { signInWithGoogle, signOutWithGoogle } from "../database/firebase";
 import { Container, Row, Col } from "react-bootstrap";
+import { GiSugarCane, GiSlicedBread, GiChipsBag } from 'react-icons/gi'
+import {TbMeat} from 'react-icons/tb'
+import {AiOutlineFire} from 'react-icons/ai'
 
-const LoginLogout = () => {
+const LoginLogout = ({goals}) => {
     const Authenticate = () => {
         if (localStorage.getItem("userName")) {
             signOutWithGoogle()
@@ -23,13 +26,39 @@ const LoginLogout = () => {
                 </div>
             </Row>
             <Row className="profile-nutrient-goal square border">
-                <Col>Nutrient goal: Calories: 0; Protein: 0; Total Carbohydrates: 0; Sugar: 0; Total Fat: 0;</Col>
+                <Col>Nutrient goal: </Col>
+                <Col>
+                    <Container>
+                        <Row>
+                            <Col xs={1}><AiOutlineFire /></Col> 
+                            Calories: {goals["Calories"]}
+                        </Row>
+                        <Row>
+                            <Col xs={1}><TbMeat /></Col>
+                            Protein (g): {goals["Protein (g)"]}
+                        </Row>
+                        <Row>
+                            <Col xs={1}><GiSlicedBread /></Col>
+                            Total Carbohydrates (g): {goals["Total Carbohydrates (g)"]}
+                        </Row>
+                        <Row>
+                            <Col xs={1}><GiSugarCane /></Col>
+                            Sugar (g): {goals["Sugar (g)"]}
+                        </Row>
+                        <Row>
+                            <Col xs={1}><GiChipsBag /></Col>
+                            Total Fat (g): {goals["Total Fat (g)"]}
+                        </Row>
+                    </Container>
+                </Col>
             </Row>
             <Row className="profile-item-list square border">
                 <Col>List of items: </Col>
+                <Col></Col>
             </Row>
             <Row className="profile-food-timeseries square border">
                 <Col>Food timeseries: </Col>
+                <Col></Col>
             </Row>
         </Container>
     )
