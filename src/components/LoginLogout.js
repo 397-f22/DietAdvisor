@@ -1,5 +1,5 @@
 import { signInWithGoogle, signOutWithGoogle } from "../database/firebase";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const LoginLogout = () => {
     const Authenticate = () => {
@@ -18,19 +18,19 @@ const LoginLogout = () => {
                 </div>
                 <div style={{fontWeight: "bolder", fontSize: "23px"}}>
                     {localStorage.getItem("userName")}
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+                    <span onClick={Authenticate} className="login-logout">{localStorage.getItem("userName") ? "Logout" : "Login"}</span>
                 </div>
             </Row>
-            {/* <Row style={{height: "0vh"}}></Row> */}
-            <Row className="profile-nutrient-goal">
-                <Col>Nutrient goal: </Col>
+            <Row className="profile-nutrient-goal square border">
+                <Col>Nutrient goal: Calories: 0; Protein: 0; Total Carbohydrates: 0; Sugar: 0; Total Fat: 0;</Col>
             </Row>
-            <Row className="profile-item-list">
+            <Row className="profile-item-list square border">
                 <Col>List of items: </Col>
             </Row>
-            <Row className="profile-food-timeseries">
+            <Row className="profile-food-timeseries square border">
                 <Col>Food timeseries: </Col>
             </Row>
-            <Button onClick={Authenticate}>{localStorage.getItem("userName") ? "Logout" : "Login"}</Button>
         </Container>
     )
 }
