@@ -44,7 +44,6 @@ function App() {
               <SetGoal goals={goals} setGoals={setGoals}/>
               <NutritionInfo nutrients={macros} goal={goals} />
               <ItemList macros={macros} foodItems={foodItems} setFoodItems={setFoodItems} setMacros={setMacros}/>
-              <Autocomplete data={autoCompleteData} />
             </div>} />
             <Route path="/authenticate" element={<LoginLogout goals={goals} />} />
         </Routes>

@@ -56,10 +56,10 @@ const NutritionInfo = ({ nutrients, goal }) => {
                                                 {nutrient + "---"}
                                                 {goal[nutrient] - amount > 0 ? <Badge bg="success">{
                                                     Object.keys(foods).filter((item) => {
+                                                        
+                                                        return foods[item][nutrient] < goal[nutrient]-amount;
 
-                                                        foods[item][nutrient] < goal[nutrient] - amount
-
-                                                    })
+                                                    }).slice(0,5).join(", ")
                                                 }</Badge>
                                                     : <Badge bg="success">{"NO NEED"}</Badge>}
 

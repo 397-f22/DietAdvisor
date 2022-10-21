@@ -52,14 +52,7 @@ const LoginLogout = ({goals}) => {
                     </Container>
                 </Col>
             </Row>
-            <Row className="profile-item-list square border">
-                <Col>List of items: </Col>
-                <Col></Col>
-            </Row>
-            <Row className="profile-food-timeseries square border">
-                <Col>Food timeseries: </Col>
-                <Col></Col>
-            </Row>
+
         </Container>
     )
 }
